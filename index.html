@@ -1,0 +1,167 @@
+<!--公共头文件开始（本头文件由代码动态生成）-->
+<!doctype html> 
+<html> 
+<head> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    
+    <title>在线编码解码 - 手电筒工具箱工具箱网页版</title>
+    <meta name="description" content="在线编码解码,unicode编、解码"/>
+    <meta name="keywords" content="unicode,unicode加密,unicode解密,utf8编码,utf8解码,编码,解码,在线工具箱,工具箱,网页工具箱,手电筒🔦工具箱,手电筒软件"/>
+    
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- 页面通用 CSS 文件 -->
+    <link rel="stylesheet" href="http://tool.tyjun.cn/index/css/style.css">
+    
+    <!--返回顶部插件-->
+    <script type="text/javascript" src="http://tool.tyjun.cn/index/js/scrolltopcontrol.js"></script>
+	
+    <!--动态背景插件-->
+    <script type='text/javascript' src='http://tool.tyjun.cn/index/js/jquery.particleground.min.js'></script>
+    <!--加载动态背景-->
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $('#particles').particleground({
+                dotColor: '#5cbdaa',
+                lineColor: '#5cbdaa'
+            });
+        });
+    </script>
+    
+    <!--pajax无刷新加载插件-->
+    <!--<script type="text/javascript" src="http://tool.tyjun.cn/index/js/jquery.pjax.js"></script>-->
+    <!--公共头文件结束-->
+<!--公共banner部分开始（本banner由代码动态生成）-->
+</head> 
+
+<body>
+<!--动态背景-->
+<div id="particles"></div>
+<div class="container">
+    <h1 class="web-title">TY工具箱 <small>网页版</small></h1>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    	<div class="navbar-header" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    			<span class="sr-only">TY工具箱-网页版</span>
+    			<span class="icon-bar"></span>
+    			<span class="icon-bar"></span>
+    			<span class="icon-bar"></span>
+    		</button>
+    		<a class="navbar-brand">手电筒🔦工具箱</a>
+    	</div>
+    	<div id="navbar" class="navbar-collapse collapse">	  
+    		<ul class="nav navbar-nav">
+		    	<li><a href="/">首页</a></li>
+		    	<li><a href="//aty.pw/" target="_blank">看电影</a></li>
+		    	<li><a href="//doutu.tyjun.cn/" target="_blank">斗图</a></li>
+		    	<li><a href="//tao.tyjun.cn/" target="_blank">购物<span style="color: red;">(荐)</span></a></li>
+		    	<li><a href="http://lab.tyjun.cn/wallpaper/" target="_blank">壁纸</a></li>
+		    	<li><a href="//music.tyjun.cn/" target="_blank">音乐</a></li>
+		    	<li><a href="//tool.tyjun.cn/tieba/" target="_blank"><del>云签到</del></a></li>
+		    	<li><a href="/comment.php">留言板</a></li>
+    		</ul>
+    		<ul class="nav navbar-nav navbar-right">
+    			<li><a href="http://tyjun.cn">TY博客</a></li>
+    		</ul>
+    	</div><!--/.nav-collapse -->
+    </div><!--/.container-fluid（100%宽度） -->
+    </nav>
+<!--公共banner部分结束-->
+
+<!-- ZeroClipboard插件 -->
+<script src="//cdn.bootcss.com/zeroclipboard/2.3.0/ZeroClipboard.min.js"></script>
+
+<script src="base64.js"></script>
+
+
+
+<div class="panel panel-default">
+<div class="panel-heading">在线编码解码</div>
+<div class="panel-body">
+    <textarea id='codes' class="form-control" rows="8"></textarea><br>
+    <input type="button" value="Unicode 编码" onclick="unicodeEncode()" class="btn btn-default">
+    <input type="button" value="Unicode 解码" onclick="unicodeDecode()" class="btn btn-default">
+    <input type="button" value="Url 编码" onclick="urlEncode()" class="btn btn-default">
+    <input type="button" value="Url 解码" onclick="urlDecode()" class="btn btn-default">
+    <input type="button" value="UTF-8 编码" onclick="utf8Encode()" class="btn btn-default">
+    <input type="button" value="UTF-8 解码" onclick="utf8Decode()" class="btn btn-default">
+    <input type="button" value="Base64 编码" onclick="base64Encode()" class="btn btn-default">
+    <input type="button" value="Base64 解码" onclick="base64Decode()" class="btn btn-default">
+    <input type='button' value="复制文本" id="copy" data-clipboard-target="codes" class="btn btn-default">
+    <input type="button" value="清空内容" onclick="$('#codes').val('');" class="btn btn-default">
+</div>
+</div>
+
+<script>
+    var inputBox = $("#codes");
+    
+    // unicode编码
+    function unicodeEncode() {
+        inputBox.val(escape(inputBox.val()).replace(/%/g,"\\").toLowerCase());
+    }
+    
+    // unicode解码
+    function unicodeDecode() {
+        inputBox.val(unescape(inputBox.val().replace(/\\/g, "%")));
+    }
+    
+    // url编码
+    function urlEncode() {
+        inputBox.val(encodeURIComponent(inputBox.val()).replace(/'/g,"%27").replace(/"/g,"%22"));
+    }
+    
+    // url解码
+    function urlDecode() {
+        inputBox.val(decodeURIComponent(inputBox.val().replace(/\+/g,  " ")));
+    }
+    
+    // utf8编码
+    function utf8Encode() {
+        inputBox.val(inputBox.val().replace(/[^\u0000-\u00FF]/g,
+            function($0) {
+            return escape($0).replace(/(%u)(\w{4})/gi, "&#x$2;")
+        }));
+    }
+    
+    // utf-8解码
+    function utf8Decode() {
+        inputBox.val(unescape(inputBox.val().replace(/&#x/g, '%u').replace(/;/g, '')));
+    }
+    
+    // base64编码
+    function base64Encode() {
+        inputBox.val(base64encode(utf16to8(inputBox.val())));
+    }
+    
+    // base64解码
+    function base64Decode() {
+        inputBox.val(utf8to16(base64decode(inputBox.val())));
+    }
+    
+    // 清空
+    function clear() {
+        inputBox.val("");
+    }
+    
+    // 复制功能
+    var clip = new ZeroClipboard($("#copy"));
+</script>
+</body> 
+</html> 
+<!--公共foot部分结束-->
